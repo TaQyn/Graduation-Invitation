@@ -1,0 +1,388 @@
+/* style.css */
+:root {
+    --glow-color: #f2f91f;
+    /* màu phát sáng (vàng) */
+    --text-color: #fff;
+    /* màu chữ cơ bản */
+    --glow-strength: 18px;
+    /* kích thước bóng sáng */
+    --glow-opacity: 0.9;
+    /* độ mờ của glow */
+    --glow-speed: 3s;
+    /* tốc độ nhịp glow (nhịp chậm) */
+    --enter-duration: 1.5s;
+    --bg-color: #3b0000;
+    --text-color-note: #aaa;
+    --f-h2: 'Georgia', serif;
+    /* thời gian fade-in + scale-up */
+}
+
+body {
+    background-color: #000;
+    color: var(--text-color);
+    font-family: 'Georgia', serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    margin: 0;
+    padding: 10px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+
+.invitation-card {
+    font-family: 'Poppins Medium', serif;
+    background-color: var(--bg-color);
+    border: 4px solid var(--glow-color);
+    padding: 10px;
+    width: 90%;
+    max-width: 400px;
+    /* không quá 400px trên desktop */
+    text-align: center;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.animation {
+    animation: glow 7s ease-in-out infinite alternate
+}
+
+
+.header .icon {
+    font-size: 40px;
+    color: var(--glow-color);
+    text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+
+.invite-text {
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--glow-color);
+}
+
+.glow-title {
+
+    /* vàng kim chuẩn */
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeGlowIn 2.5s ease forwards;
+    letter-spacing: 2px;
+
+}
+
+@keyframes fadeGlowIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+        text-shadow: none;
+    }
+
+    30% {
+        opacity: 0.4;
+        text-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+    }
+
+    60% {
+        opacity: 0.8;
+        transform: scale(1.03);
+        text-shadow:
+            0 0 10px rgba(212, 175, 55, 0.4),
+            0 0 25px rgba(255, 215, 0, 0.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow:
+            0 0 10px rgba(212, 175, 55, 0.5),
+            0 0 30px rgba(255, 215, 0, 0.8),
+            0 0 60px rgba(255, 250, 140, 0.9);
+    }
+}
+
+.gold-line {
+    width: 330px;
+    height: 15px;
+    margin: 10px auto 0;
+    background: linear-gradient(90deg,
+            rgba(212, 175, 55, 0) 0%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(212, 175, 55, 0) 100%);
+
+
+}
+
+@keyframes lineShine {
+    0% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+@keyframes glow {
+    0% {
+        opacity: 0.9;
+
+        text-shadow:
+            0 0 2px rgba(212, 175, 55, 0.05),
+            0 0 4px rgba(212, 175, 55, 0.1),
+            0 0 8px rgba(212, 175, 55, 0.1);
+    }
+
+    25% {
+
+        text-shadow:
+            0 0 4px rgba(212, 175, 55, 0.8),
+            0 0 8px rgba(255, 215, 0, 1),
+            0 0 16px rgba(255, 240, 120, 1),
+
+    }
+
+    50% {
+        /* đỉnh sáng chói + rung */
+        opacity: 1;
+
+        text-shadow:
+            0 0 4px rgba(212, 175, 55, 0.8),
+            0 0 8px rgba(255, 215, 0, 1),
+            0 0 16px rgba(255, 240, 120, 1),
+
+
+    }
+
+    75% {
+
+        text-shadow:
+            0 0 6px rgba(212, 175, 55, 0.4),
+            0 0 18px rgba(255, 215, 0, 0.5),
+            0 0 36px rgba(255, 235, 130, 0.6);
+
+    }
+
+    100% {
+        opacity: 0.9;
+        text-shadow:
+            0 0 2px rgba(212, 175, 55, 0.05),
+            0 0 4px rgba(212, 175, 55, 0.1),
+            0 0 8px rgba(255, 215, 0, 0.1);
+    }
+}
+
+
+h2 {
+    font-family: var(--f-h2);
+    font-weight: bold;
+    font-size: 17px;
+    margin-top: 5px;
+}
+
+.calendar-box {
+    text-align: center;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    padding: 5px 4px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+    max-width: 90%;
+    box-sizing: border-box;
+
+}
+
+.calendar-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+
+}
+
+.calendar-box.animation-liner1::before {
+    animation: shinee 1.2s linear infinite;
+}
+
+.calendar-box.animation-liner2::before {
+    animation: shineee 1.2s linear infinite;
+}
+
+
+@keyframes shinee {
+    0% {
+        left: 100%;
+    }
+
+    100% {
+        left: -50%;
+    }
+}
+
+@keyframes shineee {
+    0% {
+        left: -50%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.calendar-row {
+    display: flex;
+    flex-wrap: wrap;
+    /* xuống dòng nếu quá hẹp */
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.calendar-row h4 {
+    margin: 5px;
+    font-size: 22px;
+    color: #f7f6f5;
+}
+
+p {
+    margin-top: 3px;
+    margin-bottom: 0;
+}
+
+
+.divider {
+    width: 2px;
+    height: 18px;
+    background-color: #aaa;
+    /* màu xám mảnh */
+}
+
+.image-container img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px 0;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    border-radius: 8px;
+}
+
+
+.invite-name {
+    font-size: 15px;
+    font-style: italic;
+
+    margin-top: 8px;
+    text-align: center;
+    text-shadow: none;
+    background: linear-gradient(90deg, #ffffff 0%, #ffd700 50%, #ffffff 100%);
+    background-size: 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+}
+
+
+
+@keyframes shine {
+    from {
+        background-position: 200% center;
+    }
+
+    to {
+        background-position: -200% center;
+    }
+}
+
+
+.details h3 {
+    font-size: 12px;
+    Color: var(--text-color-note);
+
+}
+
+
+.details p {
+    font-size: 14px;
+    line-height: 1.5;
+    padding: 0 5%;
+    /* dùng % để responsive */
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+
+
+.rsvp {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #bbb;
+}
+
+
+.note {
+    font-size: 12px;
+    color: var(--text-color-note);
+    font-style: italic;
+    margin-top: 10px;
+}
+
+button {
+    background-color: var(--text-color-note);
+    color: var(--bg-color);
+    border: 2px solid #fdfdfd;
+
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+
+button:hover {
+    background-color: #b9932e;
+}
+
+@media screen and (max-width: 480px) {
+    .invitation-card {
+        width: 95%;
+        padding: 8px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .calendar-row {
+        font-size: 14px;
+        gap: 5px;
+    }
+
+    .calendar-box {
+        padding: 3px 2px;
+    }
+
+    .details p {
+        padding: 0 3%;
+        font-size: 13px;
+    }
+
+    .invite-name {
+        font-size: 13px;
+    }
+
+    .image-container img {
+        max-width: 90%;
+    }
+}
